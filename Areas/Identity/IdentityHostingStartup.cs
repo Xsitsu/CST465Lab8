@@ -22,6 +22,15 @@ namespace CST465Lab8.Areas.Identity
 
                 services.AddDefaultIdentity<CST465Lab8User>()
                     .AddEntityFrameworkStores<CST465Lab8Context>();
+
+                services.Configure<IdentityOptions>(options =>
+                {
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 5;
+                    options.Password.RequireLowercase = true;
+                    options.Password.RequireNonAlphanumeric = true;
+                    options.Password.RequireUppercase = false;
+                });
             });
         }
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CST465Lab8.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CST465Lab8.Controllers
 {
@@ -22,6 +23,7 @@ namespace CST465Lab8.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

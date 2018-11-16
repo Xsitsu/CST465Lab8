@@ -21,6 +21,7 @@ namespace CST465Lab8.Areas.Identity
                         context.Configuration.GetConnectionString("CST465Lab8ContextConnection")));
 
                 services.AddDefaultIdentity<CST465Lab8User>()
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<CST465Lab8Context>();
 
                 services.Configure<IdentityOptions>(options =>

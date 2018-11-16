@@ -9,5 +9,6 @@ namespace CST465Lab8.Areas.Identity.Data
     // Add profile data for application users by adding properties to the CST465Lab8User class
     public class CST465Lab8User : IdentityUser
     {
+        //public string Field1 { get; set; }
     }
 }

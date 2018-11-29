@@ -28,8 +28,8 @@ namespace CST465Lab8.Areas.Identity
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequiredLength = 5;
-                    options.Password.RequireLowercase = true;
-                    options.Password.RequireNonAlphanumeric = true;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
                 });
             });

@@ -55,6 +55,11 @@ namespace CST465Lab8.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            public string Field1 { get; set; }
+            public string Field2 { get; set; }
+            public bool Field3 { get; set; }
+
         }
 
         public void OnGet(string returnUrl = null)
@@ -67,7 +72,8 @@ namespace CST465Lab8.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new CST465Lab8User { UserName = Input.Email, Email = Input.Email };
+                var user = new CST465Lab8User { UserName = Input.Email, Email = Input.Email, Field1 = Input.Field1, Field2 = Input.Field2, Field3 = Input.Field3 };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

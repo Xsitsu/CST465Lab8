@@ -20,18 +20,18 @@ namespace CST465Lab8.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("CST465Lab8ContextConnection")));
 
-                services.AddDefaultIdentity<CST465Lab8User>()
-                    .AddRoles<IdentityRole>()
-                    .AddEntityFrameworkStores<CST465Lab8Context>();
-
-                services.Configure<IdentityOptions>(options =>
+                services.AddIdentity<CST465Lab8User, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequiredLength = 5;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
-                });
+                })
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<CST465Lab8Context>();
             });
         }
     }

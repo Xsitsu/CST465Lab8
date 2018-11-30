@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CST465Lab8.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private RoleManager<IdentityRole> _RoleManager;
